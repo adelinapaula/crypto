@@ -2,6 +2,8 @@ package crypto.investment.service.impl;
 
 import crypto.investment.model.CryptoPriceCsvRecord;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
@@ -10,8 +12,10 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+@SpringBootTest
 class CryptoServiceTest {
 
+    @Autowired
     CryptoService service;
     //TODO  This should be a path to test data. An app.properties files should be added for tests */
     private final static String BTC_CSV_FILE_PATH = "classpath:csv_crypto_prices/BTC_values.csv";
