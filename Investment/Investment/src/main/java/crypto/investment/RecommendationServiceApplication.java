@@ -1,4 +1,4 @@
-package crypto.Investment;
+package crypto.investment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
