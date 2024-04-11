@@ -16,8 +16,6 @@ public interface CryptoPriceRepository extends JpaRepository<CryptoPriceEntity, 
      * TODO add documentation here
      *
      * @param symbol
-     * @param from
-     * @param to
      * @return
      */
 

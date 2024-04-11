@@ -16,5 +16,7 @@ public interface CryptoService {
     void loadInitialCryptoData() throws FileNotFoundException;
 
     List<CryptoPriceReportEntity> getLastMounthReport();
+
+    CryptoPriceReportEntity getReportBySymbol(String symbol);
 }
 

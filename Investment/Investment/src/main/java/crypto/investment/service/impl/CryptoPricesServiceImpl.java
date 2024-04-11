@@ -69,4 +69,9 @@ public class CryptoPricesServiceImpl implements CryptoService {
                 .map(cryptoPriceRepository::findReportBySymbol)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public CryptoPriceReportEntity getReportBySymbol(String symbol) {
+        return cryptoPriceRepository.findReportBySymbol(symbol);
+    }
 }
