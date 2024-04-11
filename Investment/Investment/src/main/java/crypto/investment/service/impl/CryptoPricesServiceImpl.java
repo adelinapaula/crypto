@@ -3,6 +3,7 @@ package crypto.investment.service.impl;
 import com.opencsv.bean.CsvToBeanBuilder;
 import crypto.investment.converter.CryptoPriceConverter;
 import crypto.investment.entities.CryptoPriceEntity;
+import crypto.investment.entities.CryptoPriceReportEntity;
 import crypto.investment.exception.CryptoRecommendationsException;
 import crypto.investment.model.CryptoPriceCsvRecord;
 import crypto.investment.repositories.CryptoPriceRepository;
@@ -16,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.nio.file.FileSystems;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -49,6 +51,7 @@ public class CryptoPricesServiceImpl implements CryptoService {
         }
     }
 
+    @Override
     public void loadInitialCryptoData() {
         INITIAL_CSVS
                 .forEach(csvName -> {
@@ -58,5 +61,12 @@ public class CryptoPricesServiceImpl implements CryptoService {
                             .toList();
                     cryptoPriceRepository.saveAll(entityCryptoPrices);
                 });
+    }
+
+    @Override
+    public List<CryptoPriceReportEntity> getLastMounthReport() {
+        return INITIAL_CRYPTOS.stream()
+                .map(cryptoPriceRepository::findReportBySymbol)
+                .collect(Collectors.toList());
     }
 }

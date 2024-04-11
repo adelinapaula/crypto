@@ -1,5 +1,6 @@
 package crypto.investment.service.impl;
 
+import crypto.investment.entities.CryptoPriceReportEntity;
 import crypto.investment.model.CryptoPriceCsvRecord;
 
 import java.io.FileNotFoundException;
@@ -13,4 +14,7 @@ public interface CryptoService {
     List<CryptoPriceCsvRecord> getFromCsv(String csvPathName);
 
     void loadInitialCryptoData() throws FileNotFoundException;
+
+    List<CryptoPriceReportEntity> getLastMounthReport();
 }
+

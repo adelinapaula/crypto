@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -21,7 +22,7 @@ public class CryptoPriceEntity {
     @GeneratedValue(generator = "UUID")
     private UUID id;
     @NotNull
-    private LocalDateTime recordDate;
+    private Timestamp recordDate;
     @NotNull
     private String symbol;
     @NotNull
